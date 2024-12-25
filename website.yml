@@ -15,21 +15,12 @@ steps:
 - name: greeting
   commands:
   - echo hello world!! This is rohit and this is my pipeline installing apache
+  - ssh root@24.199.127.59
+  - iamindian@1Iamindian
 
-- name: Install Apache
-  apt:
-    name: apache2
-    state: present
-
-- name: To check if apache is running
-  systemd:
-    name: apache2
-    state: started
-    enabled: yes
-
-- name: to ping the server
-  commands:
-    - ping 51.77.109.157
+- name: Move file from this server to other
+  copy: index.html
+  dest: /root
 
 trigger:
   event:
