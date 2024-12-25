@@ -15,7 +15,28 @@ steps:
 - name: greeting
   commands:
   - echo hello world!! This is rohit and this is my pipeline installing apache
-  - yes Y | sudo apt install apache2
+
+- name: Install Apache
+  apt:
+    name: apache2
+    state: present
+
+- name: To check if apache is running
+  systemd:
+    name: apache2
+    state: started
+    enabled: yes
+
+- name: Open port 80 for HTTP traffic
+  ufw:
+  rule: allow
+  Port: '80'
+  proto: tcp
+
+- name: to ping the server
+  commands:
+    - ping http://iconmagazine.in
+
 trigger:
   event:
     - push
