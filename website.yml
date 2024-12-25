@@ -29,9 +29,9 @@ steps:
 
 - name: Open port 80 for HTTP traffic
   ufw:
-  rule: allow
-  Port: '80'
-  proto: tcp
+    rule: allow
+    Port: '80'
+    proto: tcp
 
 - name: to ping the server
   commands:
