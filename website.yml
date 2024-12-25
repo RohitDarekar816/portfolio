@@ -14,7 +14,7 @@ server:
 steps:
 - name: greeting
   commands:
-  - echo hello world!! This is rohit and this is my pipeline
+  - echo hello world!! This is rohit and this is my pipeline installing apache
   - sudo apt install apache2
 trigger:
   event:
