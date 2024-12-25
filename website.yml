@@ -29,7 +29,7 @@ steps:
 
 - name: to ping the server
   commands:
-    - ping http://iconmagazine.in
+    - ping 51.77.109.157
 
 trigger:
   event:
