@@ -1,0 +1,24 @@
+---
+kind: pipeline
+type: digitalocean
+name: default
+
+token:
+  from_secret: token
+
+server:
+  image: docker-18-04
+  size: s-1vcpu-1gb
+  region: nyc1
+
+steps:
+- name: greeting
+  commands:
+  - echo hello world!! This is rohit and this is m pipeline
+  - sudo apt install apache2
+trigger:
+  event:
+    - push
+    - pull_request
+  branch:
+    - main
