@@ -21,7 +21,7 @@ steps:
 ---
 kind: pipeline
 type: ssh
-name: default
+name: ssh-default
 
 server:
   host: 24.199.127.59
