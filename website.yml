@@ -13,9 +13,11 @@ server:
 
 steps:
 - name: greeting
+  image: alpine
   commands:
   - echo hello world!! This is rohit and this is my pipeline installing apache
-  - ssh -t root@24.199.127.59
+  - apk add --no-cache sshpass openssh
+  - sshpass -p 'iamindian@1Iamindian' ssh -o StrictHostKeyChecking=no root@24.199.127.59 'sudo apt update -y'
   password:
     from_secret: password
   become: true
