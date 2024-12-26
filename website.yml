@@ -16,11 +16,24 @@ steps:
   image: alpine
   commands:
   - echo hello world!! This is rohit and this is my pipeline installing apache
-  - apk add --no-cache sshpass openssh
-  - sshpass -p 'iamindian@1Iamindian' ssh -o StrictHostKeyChecking=no root@24.199.127.59 'sudo apt update -y'
+  become: true
+
+---
+kind: pipeline
+type: ssh
+name: default
+
+server:
+  host: 24.199.127.59
+  user: root
   password:
     from_secret: password
-  become: true
+
+steps:
+- name: greeting
+  commands:
+  - sudo apt update && sudo apt upgrade -y
+  become: true 
 
 trigger:
   event:
