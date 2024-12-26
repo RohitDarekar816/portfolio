@@ -15,12 +15,13 @@ steps:
 - name: greeting
   commands:
   - echo hello world!! This is rohit and this is my pipeline installing apache
-  - ssh root@24.199.127.59
-  - iamindian@1Iamindian
-
-- name: Move file from this server to other
-  copy: index.html
-  dest: /root
+  type: ssh
+  server:
+    host: 24.199.127.59
+    user: root
+    password:
+      from_secret: password
+  become: true
 
 trigger:
   event:
