@@ -15,12 +15,13 @@ steps:
 - name: greeting
   commands:
   - echo hello world!! This is rohit and this is my pipeline installing apache
-  type: ssh
-  server:
-    host: 24.199.127.59
-    user: root
-    password:
-      from_secret: password
+  - kind: pipeline
+  - type: ssh
+    server:
+      host: 24.199.127.59
+      user: root
+      password:
+        from_secret: password
   become: true
 
 trigger:
